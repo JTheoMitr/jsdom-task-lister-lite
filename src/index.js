@@ -1,20 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
   
   const form = document.querySelector('form');
-  let inputTag = document.querySelector('input#new-task-description');
+  const inputTag = document.querySelector('input#new-task-description');
+  
 
   form.addEventListener('submit', function(event){
     event.preventDefault();
 
-    let inputValue = inputTag.value;
+    const inputValue = inputTag.value;
 
-    let newLi = document.createElement('li');
+    const newLi = document.createElement('li');
     newLi.innerText = `${inputValue}            `;
 
-    let newButton = document.createElement('button');
+    const newButton = document.createElement('button');
     newButton.innerText = " Delete "
 
-    let ulTag = document.querySelector('ul#tasks');
+    const ulTag = document.querySelector('ul#tasks');
 
       if (inputTag.value != '') {
         ulTag.append(newLi);
@@ -24,6 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
       else {
         inputTag.value = '';
       }
+
+      newButton.addEventListener('click', function(event) {
+        newLi.remove()
+      } )
 
 
   })
